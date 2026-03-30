@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/student_dashboard.css' %}">
+</head>
+<body>
+    <header> 
+        <div class="logo-container"> 
+            {% if active_logo and active_logo.logo %}
+            <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo">
+            {% endif %}
+        </div>
+        <div class="college-name-container">
+            <div class="college-name-header-text">
+                {{ active_logo.college_name }}
+            </div>
+        </div>
+        <div style="padding: 10px 20px;">
+            <button onclick="window.history.back()"
+    style="background: white; color: #1e3a8a; border: none; padding: 10px 20px; 
+           border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold;
+           display: flex; align-items: center; gap: 8px;">
+    &#8592; Back
+</button>
+</div>
+    </header>
+    <div class="main">
+        <div class="content">
+            <div class="dashboard-heading" style="margin-top: 40px;">WELCOME TO STUDENT DASHBOARD</div>
+            <div class="module-blocks-container" style="margin-top: 40px;">
+                <div class="module-block">
+                    <h3>View Challan</h3>
+                    <p>Check your fee status.</p>
+                    <a class="button" href="{% url 'view_challan' %}">View Challan</a>
+                </div>
+                <div class="module-block">
+                    <h3>Download Challan</h3>
+                    <p>Download or print your challan.</p>
+                    <a class="button" href="{% url 'download_challan' %}">Download Challan</a>
+                </div>
+                <div class="module-block">
+                    <h3>Logout</h3>
+                    <p>Click to open logout confirmation.</p>
+                    <a class="button" href="{% url 'logout_confirmation' %}?from=student">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'feeapp/js/student_dashboard.js' %}"></script>
+    <script src="{% static 'feeapp/js/logout.js' %}"></script>
+</body>
+</html>

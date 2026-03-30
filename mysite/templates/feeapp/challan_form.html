@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Challan</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/challan_form.css' %}">
+</head>
+<body>
+    <div class="header-box" id="headerBox">Design Challan</div>
+    <div class="container" id="form-container">
+        <div class="section-title">Select Program</div>
+        <div id="selectProgramContainer" style="max-width: 400px; margin-bottom: 12px;">
+            <select id="programSelect" class="program-select">
+                <option value="">Choose Program </option>
+            </select>
+        </div>
+
+        <template id="formTemplate">
+            <div class="form-content" style="margin-top: 64px;">
+                <div class="grid grid-2 mb-4">
+                    <div>
+                        <div class="section-title">Shift</div>
+                        <div class="shift-options"></div>
+                    </div>
+                    <div>
+                       <div class="section-title">Session</div>
+                       <select class="session-field session-select mb-2"></select>
+                       <input type="text" placeholder="Enter custom session" class="session-field custom-session-input" />
+                       <button type="button" class="btn" onclick="saveCustomSession()">Save Custom Session</button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2 mb-4">
+                    <div>
+                        <div class="section-title">Due Date</div>
+                        <input type="date" class="short" />
+                    </div>
+                    <div>
+                        <div class="section-title">Semester</div>
+                        <div class="semester-checkboxes grid grid-4"></div>
+                    </div>
+                </div>
+                
+                <div class="discipline-section">
+                    <div class="section-title">Discipline</div>
+                    <div class="discipline-list grid grid-2"></div>
+                </div>
+
+                <div id="generateOptions" style="display: none; margin-top: 20px;">
+                    <div class="section-title">Generate For</div>
+                    <div class="grid grid-2 mb-4">
+                        <div>
+                            <label><input type="radio" name="generate_mode" value="single" checked> Single Student</label>
+                            <label><input type="radio" name="generate_mode" value="bulk"> Bulk Students</label>
+                        </div>
+                        <div id="studentSelection" class="student-selection">
+                            <div class="section-title">Select Student</div>
+                            <select id="studentSelect" class="program-select">
+                                <option value=""> Select Student </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fee-head-section">
+                    <div class="section-title">Fee Heads</div>
+                    <div class="fee-head-container"></div>
+                    <div class="text-center" style="margin-top: 10px; margin-bottom: 20px;">
+                        <button class="btn add-fee-head-btn" type="button" onclick="addNewFeeHead()">Add New Fee Head</button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2 mb-4">
+                    <div>
+                        <div class="section-title">Tuition Fee</div>
+                        <input type="number" class="tuition-fee short" oninput="calculateGrandTotal()" />
+                    </div>
+                    <div>
+                        <div class="section-title">Grand Total</div>
+                        <input type="number" class="grand-total short" readonly />
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="btn generate-btn" type="button">Generate / Upload Challan</button>
+                </div>
+            </div>
+        </template>
+        
+        <div id="bsForm" class="program-form hidden"></div>
+        <div id="bsrForm" class="program-form hidden"></div>
+        <div id="interForm" class="program-form hidden"></div>
+        <div id="bachelorForm" class="program-form hidden"></div>
+        <div id="mastersForm" class="program-form hidden"></div>
+        <div id="adpForm" class="program-form hidden"></div>
+    </div>
+    
+    
+    <div id="challanDisplay" style="display:none;">
+        <div id="generatedChallan">
+            <!-- Student Copy -->
+            <div class="challan-copy">
+                <div class="copy-label">Student Copy</div>
+                <div class="header-section">
+                    <div class="logo-container">
+                        {% if active_logo and active_logo.logo %}
+                        <img src="{{ active_logo.logo.url }}" alt="Logo" class="circle-logo">
+                        {% endif %}
+                    </div>
+                    <div class="college-name">{{ active_logo.college_name }}</div>
+                </div>
+                <div class="challan-number"><strong>Challan No.</strong> <span class="challan-number-text"></span></div>
+                <div class="program-info"><span class="form-discipline"></span> - <span class="form-semester"></span> - Session <span class="form-session"></span></div>
+                <hr>
+                <div class="student-info"><strong>Student:</strong> <span class="c-name"></span> | <strong>Roll No:</strong> <span class="c-roll"></span> | <strong>Shift:</strong> <span class="c-shift"></span></div>
+                <div class="date-box"><strong>Due Date:</strong> <span class="c-due"></span></div>
+                
+                <div class="fee-details">
+                    <strong>Fee Breakdown:</strong>
+                    <table class="fee-table">
+                        <thead>
+                            <tr>
+                                <th>Fee Head</th>
+                                <th>Amount (Rs.)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="fee-table-body"></tbody>
+                    </table>
+                </div>
+                
+                <div class="amount-box">
+                    <strong>Total Due Amount: <span class="c-amount"></span></strong>
+                </div>
+                
+                <div class="instructions">
+                    &bull; Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br>
+                    &bull; For Online Fee Deposit: <strong>Select 1BILL#: <span class="c-one-bill"></span></strong> and pay.
+                </div>
+                
+                <div class="footer-note">Any fee directly transferred to account through ATM or any Banking channel is not verifiable.</div>
+                <div class="signature-line"> Cashier: _________ &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stamp: _________</div>
+            </div>
+            
+            <!-- Bank Copy -->
+            <div class="challan-copy">
+                <div class="copy-label">Bank Copy</div>
+                <div class="header-section">
+                    <div class="logo-container">
+                        {% if active_logo and active_logo.logo %}
+                        <img src="{{ active_logo.logo.url }}" alt="Logo" class="circle-logo">
+                        {% endif %}
+                    </div>
+                    <div class="college-name">{{ active_logo.college_name }}</div>
+                </div>
+                <div class="challan-number"><strong>Challan No.</strong> <span class="challan-number-text"></span></div>
+                <div class="program-info"><span class="form-discipline"></span> - <span class="form-semester"></span> - Session <span class="form-session"></span></div>
+                <hr>
+                <div class="student-info"><strong>Student:</strong> <span class="c-name"></span> | <strong>Roll No:</strong> <span class="c-roll"></span> | <strong>Shift:</strong> <span class="c-shift"></span></div>
+                <div class="date-box"><strong>Due Date:</strong> <span class="c-due"></span></div>
+                
+                <div class="fee-details">
+                    <strong>Fee Breakdown:</strong>
+                    <table class="fee-table">
+                        <thead>
+                            <tr>
+                                <th>Fee Head</th>
+                                <th>Amount (Rs.)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="fee-table-body"></tbody>
+                    </table>
+                </div>
+                
+                <div class="amount-box">
+                    <strong>Total Due Amount: <span class="c-amount"></span></strong>
+                </div>
+                
+                <div class="instructions">
+                    &bull; Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br>
+                    &bull; For Online Fee Deposit: <strong>Select 1BILL#: <span class="c-one-bill"></span></strong> and pay.
+                </div>
+                
+                <div class="footer-note">Any fee directly transferred to account through ATM or any Banking channel is not verifiable.</div>
+                <div class="signature-line"> Cashier: _________ &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stamp: _________</div>
+            </div>
+            
+            <!-- College Copy -->
+            <div class="challan-copy">
+                <div class="copy-label">College Copy</div>
+                <div class="header-section">
+                    <div class="logo-container">
+                        {% if active_logo and active_logo.logo %}
+                        <img src="{{ active_logo.logo.url }}" alt="Logo" class="circle-logo">
+                        {% endif %}
+                    </div>
+                    <div class="college-name">{{ active_logo.college_name }}</div>
+                </div>
+                <div class="challan-number"><strong>Challan No.</strong> <span class="challan-number-text"></span></div>
+                <div class="program-info"><span class="form-discipline"></span> - <span class="form-semester"></span> - Session <span class="form-session"></span></div>
+                <hr>
+                <div class="student-info"><strong>Student:</strong> <span class="c-name"></span> | <strong>Roll No:</strong> <span class="c-roll"></span> | <strong>Shift:</strong> <span class="c-shift"></span></div>
+                <div class="date-box"><strong>Due Date:</strong> <span class="c-due"></span></div>
+                
+                <div class="fee-details">
+                    <strong>Fee Breakdown:</strong>
+                    <table class="fee-table">
+                        <thead>
+                            <tr>
+                                <th>Fee Head</th>
+                                <th>Amount (Rs.)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="fee-table-body"></tbody>
+                    </table>
+                </div>
+                
+                <div class="amount-box">
+                    <strong>Total Due Amount: <span class="c-amount"></span></strong>
+                </div>
+                
+                <div class="instructions">
+                    &bull; Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br>
+                    &bull; For Online Fee Deposit: <strong>Select 1BILL#: <span class="c-one-bill"></span></strong> and pay.
+                </div>
+                
+                <div class="footer-note">Any fee directly transferred to account through ATM or any Banking channel is not verifiable.</div>
+                <div class="signature-line"> Cashier: _________ &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stamp: _________</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="buttons-wrapper" id="printBackBtn" style="display: none;">
+        <button onclick="window.print()" style="background: #1E3A8A; color: white;">Print Challan</button>
+        <button onclick="goBack()" style="background: #dc3545; color: white;">Go Back</button>
+    </div>
+    
+    <script src="{% static 'feeapp/js/challan_form.js' %}"></script>
+</body>
+</html>

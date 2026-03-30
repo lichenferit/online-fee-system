@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clerk Login</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/clerk_login.css' %}" />
+    <meta name="csrf-token" content="{{ csrf_token }}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            {% if active_logo and active_logo.logo %}
+            <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo" />
+            {% endif %}
+        </div>
+        <div class="college-name-container">
+            <div class="college-name-header-text">{{ active_logo.college_name }}</div>
+        </div>
+    </header>
+
+    <div class="main-content">
+
+        <div class="page active" id="loginPage">
+            <div class="form-container">
+                <h2 class="form-title">Clerk Login</h2>
+                <div id="loginError" class="error-message"></div>
+                <div class="input-group">
+                    <label class="input-label">Email</label>
+                    <input type="email" class="input-field" id="loginEmail" placeholder="Enter your email" autocomplete="off">
+                </div>
+                <div class="input-group password-container">
+                    <label class="input-label">Password</label>
+                    <input type="password" id="loginPassword" class="input-field" placeholder="Enter password" autocomplete="new-password">
+                    <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')"> </button>
+                </div>
+                <button class="submit-btn" id="loginBtn">Login</button>
+                <div class="form-links">
+                    <a href="javascript:void(0)"
+                       id="forgotPasswordLink"
+                       class="form-link"
+                       onclick="showForgotPassword()">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="forgotStep1">
+            <div class="form-container">
+                <h2 class="form-title">Reset Password</h2>
+                <div id="forgotError1" class="error-message"></div>
+                <div id="forgotMessage1"></div>
+                <div class="input-group">
+                    <label class="input-label">Email</label>
+                    <input type="email" class="input-field" id="resetEmail" placeholder="Enter your email">
+                </div>
+                <button class="submit-btn" id="sendOtpBtn">Send OTP</button>
+                <div class="form-links">
+                    <a href="#" class="form-link" onclick="showLogin()">Back to Login</a>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="forgotStep2">
+            <div class="form-container">
+                <h2 class="form-title">Verify OTP</h2>
+                <div id="forgotError2" class="error-message"></div>
+                <div id="forgotMessage2"></div>
+                <div class="input-group">
+                    <label class="input-label">Email</label>
+                    <input type="email" class="input-field" id="otpEmail" readonly>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">OTP Code</label>
+                    <input type="text" class="input-field" id="otpCode" placeholder="Enter 6-digit OTP">
+                </div>
+                <button class="submit-btn" id="verifyOtpBtn">Verify OTP</button>
+                <button class="submit-btn" onclick="resendOtp()" style="margin-top: 10px; background-color: #6c757d;">Resend OTP</button>
+                <div class="form-links">
+                    <a href="#" class="form-link" onclick="showPage('forgotStep1')">Back</a>
+                </div>
+            </div>
+        </div>
+        <div class="page" id="forgotStep3">
+            <div class="form-container">
+                <h2 class="form-title">Set New Password</h2>
+                <div id="forgotError3" class="error-message"></div>
+                <div id="forgotMessage3"></div>
+                <div class="input-group">
+                    <label class="input-label">New Password</label>
+                    <input type="password" id="newPassword" class="input-field" placeholder="Enter new password">
+                    <div class="password-strength">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
+                </div>
+                <div class="input-group password-container">
+                    <label class="input-label">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm new password">
+                    <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')"> </button>
+                </div>
+                <button class="submit-btn" id="savePasswordBtn">Save Password</button>
+                <div class="form-links">
+                    <a href="#" class="form-link" onclick="showPage('forgotStep2')">Back</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+   
+    <div id="modalNotification" class="modal-notification">
+        <div class="modal-content">
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+    <div id="toastNotification" class="toast-notification"></div>
+    <div id="simpleNotification" class="notification"></div>
+
+    <script src="{% static 'feeapp/js/clerk_login.js' %}"></script>
+</body>
+</html>

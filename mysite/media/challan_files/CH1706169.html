@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fee Challan - CH1706169</title>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 8mm;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            line-height: 1.0;
+            background: white;
+            width: 297mm;
+            height: 210mm;
+        }
+        .page-container {
+            width: 277mm;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            gap: 2mm;
+            padding: 0;
+        }
+        .challan-copy {
+            width: 89mm;
+            min-height: 180mm;
+            border: 1.5px solid black;
+            padding: 2mm;
+            overflow: visible;
+            display: inline-block;
+            vertical-align: top;
+            float: left;
+            margin-right: 2mm;
+        }
+        .challan-copy:last-child {
+            margin-right: 0;
+        }
+        .copy-label {
+            text-align: center;
+            font-weight: bold;
+            font-size: 8px;
+            margin-bottom: 1mm;
+        }
+        .header-section {
+            text-align: center;
+            margin-bottom: 1mm;
+        }
+        .header-section table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .header-section td {
+            vertical-align: middle;
+            padding: 0;
+        }
+        .logo-container {
+            display: inline-block;
+            width: 25px;
+            padding: 0;
+        }
+        .logo-container img {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        .college-name {
+            font-weight: bold;
+            font-size: 8px;
+            padding-left: 2px;
+        }
+        .challan-number {
+            text-align: right;
+            font-size: 7px;
+            margin: 0.5mm 0;
+        }
+        .program-info {
+            text-align: center;
+            font-size: 7px;
+            margin: 0.5mm 0;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid black;
+            margin: 0.5mm 0;
+        }
+        .student-info {
+            font-size: 7px;
+            margin: 0.5mm 0;
+        }
+        .date-box {
+            text-align: right;
+            font-size: 7px;
+            margin: 0.5mm 0;
+        }
+        .fee-details {
+            font-size: 7px;
+            margin: 1mm 0;
+        }
+        .fee-details strong {
+            font-size: 7px;
+            display: block;
+            margin-bottom: 0.5mm;
+        }
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5mm 0;
+            font-size: 6px;
+        }
+        .fee-table th {
+            border: 1px solid black;
+            padding: 0.5mm 1mm;
+            text-align: center;
+            background-color: white;
+            font-weight: bold;
+        }
+        .fee-table td {
+            border: 1px solid black;
+            padding: 0.5mm 1mm;
+            text-align: center;
+        }
+        .amount-box {
+            text-align: right;
+            font-size: 7px;
+            margin: 1mm 0;
+            font-weight: bold;
+        }
+        .instructions {
+            border: 2px solid black;
+            padding: 1mm;
+            font-size: 6px;
+            margin: 1mm 0;
+            line-height: 1.1;
+            background-color: #f9f9f9;
+        }
+        .footer-note {
+            font-style: italic;
+            font-size: 6px;
+            margin: 0.5mm 0;
+        }
+        .signature-line {
+            font-size: 6px;
+            margin-top: 1mm;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Student Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Student Copy</div>
+            <div class="header-section">
+                <table>
+                    <tr>
+                        <td class="logo-container">
+                            <img src="/media/logos/logo_college.jpg.jpeg" alt="Logo">
+                        </td>
+                        <td class="college-name">
+                            Government Graduate College, Civil Lines Sheikhupura
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="challan-number"><strong>Challan No.</strong> CH1706169</div>
+            <div class="program-info">ADP CS - Semester 1 - Session 2026 - 2030</div>
+            <hr>
+            <div class="student-info"><strong>Student:</strong> Inaya | <strong>Roll No:</strong> 769 | <strong>Shift:</strong> Evening</div>
+            <div class="date-box"><strong>Due Date:</strong> 16/02/2026</div>
+            <div class="fee-details">
+                <strong>Fee Breakdown:</strong>
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>Fee Head</th>
+                            <th>Amount (Rs.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tuition Fee</td><td>56</td></tr>
+<tr><td>Admission Fee</td><td>225</td></tr>
+<tr><td>Red Cross Fee</td><td>30</td></tr>
+<tr><td>General Fund</td><td>50</td></tr>
+<tr><td>Welfare Fund</td><td>50</td></tr>
+<tr><td>Medical Fund</td><td>30</td></tr>
+<tr><td>Sports Fund</td><td>90</td></tr>
+<tr><td>Cycle Fund</td><td>50</td></tr>
+<tr><td>Magazine Fund</td><td>120</td></tr>
+<tr><td>Library Fund</td><td>300</td></tr>
+<tr><td>Science Breakage</td><td>60</td></tr>
+<tr><td>Examination Fee</td><td>200</td></tr>
+<tr><td>Registration Fee</td><td>11480</td></tr>
+<tr><td>Affiliation Fee</td><td>100</td></tr>
+<tr><td>Computer Fund</td><td>300</td></tr>
+<tr><td>College Card</td><td>50</td></tr>
+<tr><td>Masjid Fund</td><td>100</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="amount-box">
+                <strong>Total Amount: Rs. 13,291.00</strong>
+            </div>
+            <div class="instructions">
+                &bull; Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br>
+                &bull; For Online Fee Deposit: Select 1BILL, <strong>Enter 1Bill#: 0169c6c5e00029</strong> and pay.
+            </div>
+            <div class="footer-note">Any fee directly transferred to account through ATM any Banking channel is not verifiable.</div>
+            <div class="signature-line">Officer: _________ Cashier: _________ Stamp: _________</div>
+        </div>
+        
+        <!-- Bank Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Bank Copy</div>
+            <div class="header-section">
+                <table>
+                    <tr>
+                        <td class="logo-container">
+                            <img src="/media/logos/logo_college.jpg.jpeg" alt="Logo">
+                        </td>
+                        <td class="college-name">
+                            Government Graduate College, Civil Lines Sheikhupura
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="challan-number"><strong>Challan No.</strong> CH1706169</div>
+            <div class="program-info">ADP CS - Semester 1 - Session 2026 - 2030</div>
+            <hr>
+            <div class="student-info"><strong>Student:</strong> Inaya | <strong>Roll No:</strong> 769 | <strong>Shift:</strong> Evening</div>
+            <div class="date-box"><strong>Due Date:</strong> 16/02/2026</div>
+            <div class="fee-details">
+                <strong>Fee Breakdown:</strong>
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>Fee Head</th>
+                            <th>Amount (Rs.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tuition Fee</td><td>56</td></tr>
+<tr><td>Admission Fee</td><td>225</td></tr>
+<tr><td>Red Cross Fee</td><td>30</td></tr>
+<tr><td>General Fund</td><td>50</td></tr>
+<tr><td>Welfare Fund</td><td>50</td></tr>
+<tr><td>Medical Fund</td><td>30</td></tr>
+<tr><td>Sports Fund</td><td>90</td></tr>
+<tr><td>Cycle Fund</td><td>50</td></tr>
+<tr><td>Magazine Fund</td><td>120</td></tr>
+<tr><td>Library Fund</td><td>300</td></tr>
+<tr><td>Science Breakage</td><td>60</td></tr>
+<tr><td>Examination Fee</td><td>200</td></tr>
+<tr><td>Registration Fee</td><td>11480</td></tr>
+<tr><td>Affiliation Fee</td><td>100</td></tr>
+<tr><td>Computer Fund</td><td>300</td></tr>
+<tr><td>College Card</td><td>50</td></tr>
+<tr><td>Masjid Fund</td><td>100</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="amount-box">
+                <strong>Total Amount: Rs. 13,291.00</strong>
+            </div>
+            <div class="instructions">
+                &bull; Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br>
+                &bull; For Online Fee Deposit: Select 1BILL, <strong>Enter 1Bill#: 0169c6c5e00029</strong> and pay.
+            </div>
+            <div class="footer-note">Any fee directly transferred to account through ATM any Banking channel is not verifiable.</div>
+            <div class="signature-line">Officer: _________ Cashier: _________ Stamp: _________</div>
+        </div>
+        
+        <!-- College Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">College Copy</div>
+            <div class="header-section">
+                <table>
+                    <tr>
+                        <td class="logo-container">
+                            <img src="/media/logos/logo_college.jpg.jpeg" alt="Logo">
+                        </td>
+                        <td class="college-name">
+                            Government Graduate College, Civil Lines Sheikhupura
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="challan-number"><strong>Challan No.</strong> CH1706169</div>
+            <div class="program-info">ADP CS - Semester 1 - Session 2026 - 2030</div>
+            <hr>
+            <div class="student-info"><strong>Student:</strong> Inaya | <strong>Roll No:</strong> 769 | <strong>Shift:</strong> Evening</div>
+            <div class="date-box"><strong>Due Date:</strong> 16/02/2026</div>
+            <div class="fee-details">
+                <strong>Fee Breakdown:</strong>
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>Fee Head</th>
+                            <th>Amount (Rs.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tuition Fee</td><td>56</td></tr>
+<tr><td>Admission Fee</td><td>225</td></tr>
+<tr><td>Red Cross Fee</td><td>30</td></tr>
+<tr><td>General Fund</td><td>50</td></tr>
+<tr><td>Welfare Fund</td><td>50</td></tr>
+<tr><td>Medical Fund</td><td>30</td></tr>
+<tr><td>Sports Fund</td><td>90</td></tr>
+<tr><td>Cycle Fund</td><td>50</td></tr>
+<tr><td>Magazine Fund</td><td>120</td></tr>
+<tr><td>Library Fund</td><td>300</td></tr>
+<tr><td>Science Breakage</td><td>60</td></tr>
+<tr><td>Examination Fee</td><td>200</td></tr>
+<tr><td>Registration Fee</td><td>11480</td></tr>
+<tr><td>Affiliation Fee</td><td>100</td></tr>
+<tr><td>Computer Fund</td><td>300</td></tr>
+<tr><td>College Card</td><td>50</td></tr>
+<tr><td>Masjid Fund</td><td>100</td></tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="amount-box">
+                <strong>Total Amount: Rs. 13,291.00</strong>
+            </div>
+            <div class="instructions">
+                &bull; Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br>
+                &bull; For Online Fee Deposit: Select 1BILL, <strong>Enter 1Bill#: 0169c6c5e00029</strong> and pay.
+            </div>
+            <div class="footer-note">Any fee directly transferred to account through ATM any Banking channel is not verifiable.</div>
+            <div class="signature-line">Officer: _________ Cashier: _________ Stamp: _________</div>
+        </div>
+    </div>
+</body>
+</html>

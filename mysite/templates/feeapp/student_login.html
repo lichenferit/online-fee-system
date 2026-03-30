@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'feeapp/css/student_login.css' %}">
+</head>
+<body>
+    <header>
+
+        <div class="logo-container">
+            {% if active_logo and active_logo.logo %}
+            <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo">
+            {% endif %}
+        </div>
+        <div class="college-name-container">
+            <div class="college-name-header-text">
+                {{ active_logo.college_name }}
+            </div>
+        </div>
+           <form method="POST" autocomplete="off">
+        <div style="padding: 10px 20px;">
+            <button onclick="window.history.back()"
+    style="background: white; color: #1e3a8a; border: none; padding: 10px 20px; 
+           border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold;
+           display: flex; align-items: center; gap: 8px;">
+    &#8592; Back
+</button>
+</div>
+    </header>
+    
+    {% if messages %}
+    <div class="messages-container" style="display: none;">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" style="display: none;">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <div id="notification"></div>
+    
+    <div class="main-content">
+        <div class="container">
+            <h2>Student Login</h2>
+            <form method="POST" action="{% url 'student_login' %}" id="loginForm">
+                {% csrf_token %}
+                <input type="text" 
+                       id="cnic" 
+                       name="cnic" 
+                       placeholder="Enter CNIC (XXXXX-XXXXXXX-X)" 
+                       maxlength="15" 
+                       required>
+                <input type="date" id="dob" name="dob" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+ 
+    
+    <script src="{% static 'feeapp/js/student_login.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Update Challan</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/update_challan.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        {% if active_logo and active_logo.logo %}
+        <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo" />
+        {% endif %}
+      </div>
+      <div class="college-name-container">
+        <div class="college-name-header-text">{{ active_logo.college_name }}</div>
+      </div>
+    </header>
+    <div class="container">
+      <h2>Update Challan</h2>
+      
+      <label for="challanNumber">Enter Challan Number </label>
+      <input type="text" id="challanNumber" placeholder="e.g., CH123456" maxlength="12" required />
+      
+      <label for="amount">Enter Amount </label>
+      <input type="number" id="amount" placeholder=" " />
+      
+      <label for="dueDate">Select Due Date </label>
+      <input type="date" id="dueDate" placeholder="Leave blank to keep current" />
+      
+      <label for="status">Select Status </label>
+      <select id="status">
+        <option value="">Keep current status</option>
+        <option value="Paid">Paid</option>
+        <option value="Unpaid">Unpaid</option>
+      </select>
+      
+      <button id="updateBtn">Update Challan</button>
+    </div>
+    
+    <div class="modal-overlay" id="modalOverlay" role="alertdialog" aria-modal="true" aria-labelledby="modalMessage">
+      <div class="modal" id="modal">
+        <div id="modalMessage"></div>
+        <button class="close-btn" id="modalCloseBtn" style="display:none;">Close</button>
+      </div>
+    </div>
+    
+    <script src="{% static 'feeapp/js/update_challan.js' %}"></script>
+  </body>
+</html>

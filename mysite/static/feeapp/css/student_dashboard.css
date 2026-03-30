@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    padding: 0;
+}
+header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px 20px;            
+    display: grid;                   
+    grid-template-columns: auto 1fr auto;  
+    align-items: center;            
+    column-gap: 16px;                
+    border-bottom: 4px solid #1e3a8a;
+    border-radius: 12px;             
+    min-height: 110px;                 
+}
+.logo {
+    height: 84px;
+    width: 84px;
+    
+}
+.logo-container {
+    margin-left: 20px;
+}        
+
+.college-name-container {
+    text-align: center;
+    margin-right: 0;
+}
+.college-name-header-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    justify-self: left;
+   
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+}
+.content {
+    flex: 1;
+    padding: 10px 30px;
+}
+
+.dashboard-heading {
+    font-size: 32px;
+    color: #1e3a8a;
+    text-align: center;
+    font-weight: bold;
+    margin-top: -20px;
+}
+
+.module-blocks-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.module-block {
+    background: linear-gradient(to bottom right, #e0ecff, #f9fbff);
+    border: 1px solid #d0dbf2;
+    border-left: 6px solid #1e3a8a;
+    padding: 25px;
+    border-radius: 20px;
+    width: 260px;
+   
+    text-align: center;
+    transition: all .3s ease;
+}
+
+.module-block:hover {
+    transform: translateY(-5px);
+    
+}
+.module-block h3 {
+    margin-top: 0;
+    color: #1e3a8a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.module-block p {
+    color: #555;
+    font-size: 14px;
+    margin: 10px 0 20px;
+}
+
+.module-block a.button {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+ 
+}
+
+.module-block a.button:hover {
+    background-color: #16357a;
+}

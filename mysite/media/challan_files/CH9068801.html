@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fee Challan - CH9068801</title>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        .challan-container {
+            width: 100%;
+            padding: 0;
+            margin: 0 auto;
+        }
+        .challan-copy {
+            page-break-inside: avoid;
+            margin-bottom: 4mm;
+            padding: 4mm;
+            border: 2px solid #000;
+            background: white;
+            position: relative;
+        }
+        .copy-label {
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 4px;
+            color: #1e3a8a;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .header-table td {
+            vertical-align: middle;
+            padding: 1mm 0;
+        }
+        .logo-container {
+            display: inline-block;
+        }
+        .logo-container img {
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+        }
+        .challan-title {
+            font-weight: bold;
+            font-size: 13px;
+            color: #000;
+            vertical-align: middle;
+            padding-left: 4mm;
+            display: inline-block;
+        }
+        .challan-info {
+            text-align: right;
+            font-size: 10px;
+        }
+        .challan-number {
+            font-size: 12px;
+            font-weight: bold;
+            color: #dc2626;
+        }
+        .challan-program {
+            text-align: center;
+            font-size: 10px;
+            margin: 3mm 0;
+            color: #000;
+            font-weight: 500;
+        }
+        .fee-heads-horizontal {
+            font-size: 10px;
+            line-height: 1.4;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #000;
+            margin: 2mm 0;
+        }
+        .challan-footer {
+            margin-top: 3mm;
+            font-size: 9px;
+            border-top: 1px dashed #666;
+            padding-top: 2mm;
+        }
+        .fee-section-table td {
+            vertical-align: top;
+            font-size: 10px;
+            padding: 1mm 0;
+        }
+        .fee-section-table td.right-align {
+            text-align: right;
+        }
+        
+        /* ✅ ONELINK SECTION STYLING */
+        .onelink-section {
+            margin-top: 3mm;
+            border: 2px solid #f59e0b;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 3mm;
+            border-radius: 2mm;
+        }
+        .onelink-header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 11px;
+            color: #92400e;
+            margin-bottom: 2mm;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .onelink-number {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+            letter-spacing: 3px;
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 2mm;
+            border: 1px dashed #f59e0b;
+            border-radius: 1mm;
+            margin-bottom: 2mm;
+        }
+        .onelink-instructions {
+            font-size: 9px;
+            line-height: 1.4;
+            color: #1f2937;
+        }
+        .onelink-instructions strong {
+            color: #dc2626;
+        }
+        .bank-list {
+            font-size: 8px;
+            color: #6b7280;
+            margin-top: 1mm;
+            font-style: italic;
+        }
+        .warning-text {
+            margin-top: 2mm;
+            font-style: italic;
+            font-size: 8px;
+            color: #dc2626;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="challan-container">
+        <!-- Student Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Student Copy</div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 60%;">
+                        <div class="logo-container">
+                            <img src="/media/logos/logo_college_WKUcgZi.jpg" alt="College Logo">
+                            <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                        </div>
+                    </td>
+                    <td style="width: 40%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span class="challan-number">CH9068801</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                BS IT - Semester 1 - Session 2026 - 2029
+            </div>
+            <hr />
+            <div><strong>Student:</strong> Malaika Saleem | <strong>Roll No:</strong> 101 | <strong>Shift:</strong> Evening</div>
+            <table class="fee-section-table" style="margin-top: 2mm;">
+                <tr>
+                    <td style="width: 55%;">
+                        <strong>Fee Breakdown:</strong>
+                        <div class="fee-heads-horizontal">
+                            Tuition Fee: Rs.34578, Welfare Fund: Rs.50, Medical Fund: Rs.30, Cycle Fund: Rs.50, Examination Fee: Rs.200, Affiliation Fee: Rs.100, Masjid Fund: Rs.200
+                        </div>
+                    </td>
+                    <td style="width: 45%;" class="right-align">
+                        <div><strong>Due Date:</strong> 29/01/2026</div>
+                        <div style="font-size: 14px; color: #dc2626; margin-top: 1mm;"><strong>Total Amount: Rs. 35,208.00</strong></div>
+                    </td>
+                </tr>
+            </table>
+            
+            <!-- ✅ ONELINK PAYMENT SECTION -->
+            <div class="onelink-section">
+                <div class="onelink-header">🏦 1Bill Consumer Number (OneLink)</div>
+                <div class="onelink-number">010119ce595106</div>
+                <div class="onelink-instructions">
+                    ✓ Open your <strong>Bank's Mobile App / Internet Banking / ATM</strong><br />
+                    ✓ Select <strong>"Bill Payment"</strong> → Choose <strong>"1Bill"</strong><br />
+                    ✓ Enter Consumer Number: <strong>010119ce595106</strong><br />
+                    ✓ Verify amount: <strong>Rs. 35,208.00</strong> and complete payment<br />
+                    <div class="bank-list">
+                        Supported Banks: HBL, UBL, MCB, Bank Alfalah, Allied Bank, Faysal Bank, Meezan Bank, and all major banks
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning-text">
+                ⚠ Do NOT deposit fee directly to bank account. Only pay through 1Bill system for instant verification.
+            </div>
+            
+            <div class="challan-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%;">Officer: ______________</td>
+                        <td style="width: 33%; text-align: center;">Cashier: ______________</td>
+                        <td style="width: 34%; text-align: right;">Bank Stamp: ______________</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Bank Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Bank Copy</div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 60%;">
+                        <div class="logo-container">
+                            <img src="/media/logos/logo_college_WKUcgZi.jpg" alt="College Logo">
+                            <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                        </div>
+                    </td>
+                    <td style="width: 40%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span class="challan-number">CH9068801</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                BS IT - Semester 1 - Session 2026 - 2029
+            </div>
+            <hr />
+            <div><strong>Student:</strong> Malaika Saleem | <strong>Roll No:</strong> 101 | <strong>Shift:</strong> Evening</div>
+            <table class="fee-section-table" style="margin-top: 2mm;">
+                <tr>
+                    <td style="width: 55%;">
+                        <strong>Fee Breakdown:</strong>
+                        <div class="fee-heads-horizontal">
+                            Tuition Fee: Rs.34578, Welfare Fund: Rs.50, Medical Fund: Rs.30, Cycle Fund: Rs.50, Examination Fee: Rs.200, Affiliation Fee: Rs.100, Masjid Fund: Rs.200
+                        </div>
+                    </td>
+                    <td style="width: 45%;" class="right-align">
+                        <div><strong>Due Date:</strong> 29/01/2026</div>
+                        <div style="font-size: 14px; color: #dc2626; margin-top: 1mm;"><strong>Total Amount: Rs. 35,208.00</strong></div>
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="onelink-section">
+                <div class="onelink-header">🏦 1Bill Consumer Number (OneLink)</div>
+                <div class="onelink-number">010119ce595106</div>
+                <div class="onelink-instructions">
+                    For Bank Officer: Verify consumer number and amount before processing payment
+                </div>
+            </div>
+            
+            <div class="challan-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%;">Officer: ______________</td>
+                        <td style="width: 33%; text-align: center;">Cashier: ______________</td>
+                        <td style="width: 34%; text-align: right;">Bank Stamp: ______________</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- College Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">College Copy</div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 60%;">
+                        <div class="logo-container">
+                            <img src="/media/logos/logo_college_WKUcgZi.jpg" alt="College Logo">
+                            <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                        </div>
+                    </td>
+                    <td style="width: 40%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span class="challan-number">CH9068801</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                BS IT - Semester 1 - Session 2026 - 2029
+            </div>
+            <hr />
+            <div><strong>Student:</strong> Malaika Saleem | <strong>Roll No:</strong> 101 | <strong>Shift:</strong> Evening</div>
+            <table class="fee-section-table" style="margin-top: 2mm;">
+                <tr>
+                    <td style="width: 55%;">
+                        <strong>Fee Breakdown:</strong>
+                        <div class="fee-heads-horizontal">
+                            Tuition Fee: Rs.34578, Welfare Fund: Rs.50, Medical Fund: Rs.30, Cycle Fund: Rs.50, Examination Fee: Rs.200, Affiliation Fee: Rs.100, Masjid Fund: Rs.200
+                        </div>
+                    </td>
+                    <td style="width: 45%;" class="right-align">
+                        <div><strong>Due Date:</strong> 29/01/2026</div>
+                        <div style="font-size: 14px; color: #dc2626; margin-top: 1mm;"><strong>Total Amount: Rs. 35,208.00</strong></div>
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="onelink-section">
+                <div class="onelink-header">🏦 1Bill Consumer Number (OneLink)</div>
+                <div class="onelink-number">010119ce595106</div>
+                <div class="onelink-instructions">
+                    For College Record: Student CNIC: 3540455555555 | Contact: 03486054837
+                </div>
+            </div>
+            
+            <div class="challan-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%;">Officer: ______________</td>
+                        <td style="width: 33%; text-align: center;">Cashier: ______________</td>
+                        <td style="width: 34%; text-align: right;">Bank Stamp: ______________</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

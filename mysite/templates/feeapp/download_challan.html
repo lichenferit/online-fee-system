@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Download Challan</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/download_challan.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        {% if active_logo and active_logo.logo %}
+        <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo" />
+        {% endif %}
+      </div>
+      <div class="college-name-container">
+        <div class="college-name-header-text">{{ active_logo.college_name }}</div>
+      </div>
+    </header>
+<div style="padding: 10px 20px;">
+    <button onclick="history.back()" 
+        style="background: #1e3a8a; color: white; border: none; padding: 10px 20px; 
+               border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold;
+               display: flex; align-items: center; gap: 8px;">
+        &#8592; Back
+    </button>
+</div>
+    <div class="main-box" id="challanPage">
+      <h2 class="challan-heading" id="challanListHeading">Your Challans</h2>
+      <div id="loadingMsg" style="text-align:center; color:#1e3a8a; font-size:16px; margin-top:30px;">Loading your challans...</div>
+      <div id="challanListArea"></div>
+    </div>
+    <div class="main-box" id="challanPreviewPage" style="display: none;">
+      <div id="challanPreviewArea"></div>
+      <div class="btn-container" id="previewBtnContainer">
+        <button class="btn green" type="button" id="previewPrintBtn">Print</button>
+        <button class="btn pink" type="button" id="previewDownloadPdfBtn">Download PDF</button>
+        <button class="btn" type="button" id="previewBackBtn">Back to List</button>
+      </div>
+    </div>
+
+    <div id="errorMessage" style="color: red; margin-top: 10px; display: none;"></div>
+
+    <iframe id="pdfDownloader" style="display:none;"></iframe>
+
+    <script src="{% static 'feeapp/js/download_challan.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Challan</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+        .challan-container {
+            width: 100%;
+            padding: 0;
+            margin: 0 auto;
+        }
+        .challan-copy {
+            page-break-inside: avoid;
+            margin-bottom: 5mm;
+            padding: 5mm;
+            border: 1px solid #000;
+            background: white;
+        }
+        .copy-label {
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: #1e3a8a;
+        }
+        .challan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .challan-title {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: #1e3a8a;
+        }
+        .logo-container {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+        .logo-container img {
+            max-width: 40px;
+            max-height: 40px;
+        }
+        .challan-info {
+            text-align: right;
+            font-size: 10px;
+        }
+        .challan-program {
+            text-align: center;
+            font-size: 10px;
+            margin-bottom: 5px;
+            color: #1e3a8a;
+        }
+        .challan-content {
+            margin: 5px 0;
+        }
+        .fee-heads-list {
+            margin-left: 10px;
+            line-height: 1.2;
+        }
+        .fee-head-item {
+            margin-bottom: 2px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #000;
+            margin: 5px 0;
+        }
+        .challan-footer {
+            margin-top: 10px;
+            font-size: 9px;
+        }
+    </style>
+</head>
+<body>
+    <div class="challan-container">
+        <!-- Student Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Student Copy</div>
+            <div class="challan-header">
+                <div class="challan-title">
+                    <div class="logo-container">
+                        <img src="logo_college.jpg" alt="College Logo">
+                    </div>
+                    <span>Government Graduate College, Civil Lines Sheikhupura</span>
+                </div>
+                <div class="challan-info">
+                    <strong>Challan No.</strong><br />
+                    <span class="challan-number">CH20250912074336406</span>
+                </div>
+            </div>
+            <div class="challan-program">
+                <span>BS English</span> - Semester <span>8</span> - Session <span>2023-2026</span>
+            </div>
+            <hr />
+            <div class="challan-content">
+                <div><strong>Candidate:</strong> Hope [406] (Morning)</div>
+                <div style="margin-top: 5px; display: flex; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <strong>Fee Heads:</strong>
+                        <div class="fee-heads-list">
+                            <div class="fee-head-item">Tuition Fee: Rs.354</div><div class="fee-head-item">Admission Fee: Rs.225</div><div class="fee-head-item">General Fund: Rs.50</div><div class="fee-head-item">Medical Fund: Rs.30</div><div class="fee-head-item">Cycle Fund: Rs.50</div><div class="fee-head-item">Examination Fee: Rs.200</div><div class="fee-head-item">Registration Fee: Rs.11840</div><div class="fee-head-item">Affiliation Fee: Rs.100</div><div class="fee-head-item">Computer Fund: Rs.300</div><div class="fee-head-item">College Card: Rs.50</div><div class="fee-head-item">Science Breakage: Rs.60</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: right;">
+                        <div><strong>Fee Submission:</strong></div>
+                        <div><strong>Due Date:</strong> 15/10/2025</div>
+                        <div><strong>Amount:</strong> Rs. 13259.00</div>
+                    </div>
+                </div>
+                <div style="margin-top: 5px; border: 1px solid black; padding: 5px; font-size: 9px;">
+                    • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br />
+                    • For Online Fee Deposit: Select 1BILL in Mobile/internet/ATM Banking apps, <strong>Enter the 1Bill#:</strong> Pending and pay the amount.
+                </div>
+                <div style="margin-top: 5px; font-style: italic; font-size: 9px;">
+                    "Any fee directly transferred to account through ATM any Banking channel is not verifiable."
+                </div>
+            </div>
+            <div class="challan-footer">
+                Officer: ______________ &nbsp; Cashier: ____________ &nbsp; Stamp: ____________
+            </div>
+        </div>
+
+        <!-- Bank Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Bank Copy</div>
+            <div class="challan-header">
+                <div class="challan-title">
+                    <div class="logo-container">
+                        <img src="logo_college.jpg" alt="College Logo">
+                    </div>
+                    <span>Government Graduate College, Civil Lines Sheikhupura</span>
+                </div>
+                <div class="challan-info">
+                    <strong>Challan No.</strong><br />
+                    <span class="challan-number">CH20250912074336406</span>
+                </div>
+            </div>
+            <div class="challan-program">
+                <span>BS English</span> - Semester <span>8</span> - Session <span>2023-2026</span>
+            </div>
+            <hr />
+            <div class="challan-content">
+                <div><strong>Candidate:</strong> Hope [406] (Morning)</div>
+                <div style="margin-top: 5px; display: flex; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <strong>Fee Heads:</strong>
+                        <div class="fee-heads-list">
+                            <div class="fee-head-item">Tuition Fee: Rs.354</div><div class="fee-head-item">Admission Fee: Rs.225</div><div class="fee-head-item">General Fund: Rs.50</div><div class="fee-head-item">Medical Fund: Rs.30</div><div class="fee-head-item">Cycle Fund: Rs.50</div><div class="fee-head-item">Examination Fee: Rs.200</div><div class="fee-head-item">Registration Fee: Rs.11840</div><div class="fee-head-item">Affiliation Fee: Rs.100</div><div class="fee-head-item">Computer Fund: Rs.300</div><div class="fee-head-item">College Card: Rs.50</div><div class="fee-head-item">Science Breakage: Rs.60</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: right;">
+                        <div><strong>Fee Submission:</strong></div>
+                        <div><strong>Due Date:</strong> 15/10/2025</div>
+                        <div><strong>Amount:</strong> Rs. 13259.00</div>
+                    </div>
+                </div>
+                <div style="margin-top: 5px; border: 1px solid black; padding: 5px; font-size: 9px;">
+                    • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br />
+                    • For Online Fee Deposit: Select 1BILL in Mobile/internet/ATM Banking apps, <strong>Enter the 1Bill#:</strong> Pending and pay the amount.
+                </div>
+                <div style="margin-top: 5px; font-style: italic; font-size: 9px;">
+                    "Any fee directly transferred to account through ATM any Banking channel is not verifiable."
+                </div>
+            </div>
+            <div class="challan-footer">
+                Officer: ______________ &nbsp; Cashier: ____________ &nbsp; Stamp: ____________
+            </div>
+        </div>
+
+        <!-- College Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">College Copy</div>
+            <div class="challan-header">
+                <div class="challan-title">
+                    <div class="logo-container">
+                        <img src="logo_college.jpg" alt="College Logo">
+                    </div>
+                    <span>Government Graduate College, Civil Lines Sheikhupura</span>
+                </div>
+                <div class="challan-info">
+                    <strong>Challan No.</strong><br />
+                    <span class="challan-number">CH20250912074336406</span>
+                </div>
+            </div>
+            <div class="challan-program">
+                <span>BS English</span> - Semester <span>8</span> - Session <span>2023-2026</span>
+            </div>
+            <hr />
+            <div class="challan-content">
+                <div><strong>Candidate:</strong> Hope [406] (Morning)</div>
+                <div style="margin-top: 5px; display: flex; justify-content: space-between;">
+                    <div style="flex: 1;">
+                        <strong>Fee Heads:</strong>
+                        <div class="fee-heads-list">
+                            <div class="fee-head-item">Tuition Fee: Rs.354</div><div class="fee-head-item">Admission Fee: Rs.225</div><div class="fee-head-item">General Fund: Rs.50</div><div class="fee-head-item">Medical Fund: Rs.30</div><div class="fee-head-item">Cycle Fund: Rs.50</div><div class="fee-head-item">Examination Fee: Rs.200</div><div class="fee-head-item">Registration Fee: Rs.11840</div><div class="fee-head-item">Affiliation Fee: Rs.100</div><div class="fee-head-item">Computer Fund: Rs.300</div><div class="fee-head-item">College Card: Rs.50</div><div class="fee-head-item">Science Breakage: Rs.60</div>
+                        </div>
+                    </div>
+                    <div style="flex: 1; text-align: right;">
+                        <div><strong>Fee Submission:</strong></div>
+                        <div><strong>Due Date:</strong> 15/10/2025</div>
+                        <div><strong>Amount:</strong> Rs. 13259.00</div>
+                    </div>
+                </div>
+                <div style="margin-top: 5px; border: 1px solid black; padding: 5px; font-size: 9px;">
+                    • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br />
+                    • For Online Fee Deposit: Select 1BILL in Mobile/internet/ATM Banking apps, <strong>Enter the 1Bill#:</strong> Pending and pay the amount.
+                </div>
+                <div style="margin-top: 5px; font-style: italic; font-size: 9px;">
+                    "Any fee directly transferred to account through ATM any Banking channel is not verifiable."
+                </div>
+            </div>
+            <div class="challan-footer">
+                Officer: ______________ &nbsp; Cashier: ____________ &nbsp; Stamp: ____________
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Clerk Dashboard</title>
+<link rel="stylesheet" href="{% static 'feeapp/css/clerk_dashboard.css' %}">
+</head>
+<body>
+
+   <header>
+      <div class="logo-container">
+        {% if active_logo and active_logo.logo %}
+        <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo" />
+        {% endif %}
+      </div>
+      <div class="college-name-container">
+        <div class="college-name-header-text">
+          {{ active_logo.college_name }}
+        </div>
+      </div>
+    </header>
+
+<div class="container">
+  <h2 class="welcome-header">WELCOME TO CLERK DASHBOARD</h2>
+  <div class="grid">
+
+     <a href="{% url 'challan_form' %}" class="card">
+        <h3>Design Challan</h3>
+        <p>Create, design and manage student challans efficiently.</p>
+     </a>
+     
+     <a href="/manage-installment/" class="card">
+        <h3>Manage Installments</h3>
+        <p>Handle installment plans and records.</p>
+     </a>
+
+    <div class="card" onclick="handleClick('Search Challan')">
+      <h3>Search Challan</h3>
+      <p>Find challans by CNIC</p>
+    </div>
+
+    <div class="card" onclick="handleClick('Update Challan')">
+      <h3>Update Challan</h3>
+      <p>Update status, due date and amount.</p>
+    </div>
+
+    {% if not is_admin %}
+    <a href="{% url 'logout_confirmation' %}?from=clerk" class="card logout">
+      <h3>Logout</h3>
+      <p>Sign out from the dashboard.</p>
+    </a>
+    {% endif %}
+
+    <a href="{% url 'challan_summary' %}" style="text-decoration: none; color: inherit;">
+      <div class="card">
+          <h3>Report / History</h3>
+          <p>Challans Created by: <strong>{{ today_challans_created }}</strong></p>
+          <p>Challans Generated: <strong>{{ today_challans_generated }}</strong></p>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<script src="{% static 'feeapp/js/clerk_dashboard.js' %}"></script>
+<script src="{% static 'feeapp/js/logout.js' %}"></script>
+</body>
+</html>

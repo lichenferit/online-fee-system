@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fee Challan - Installment 1</title>
+    <style>
+        @page { size: A4; margin: 8mm; }
+        body { font-family: Arial, sans-serif; font-size: 10px; line-height: 1.2; margin: 0; padding: 0; background: white; }
+        .challan-container { width: 100%; padding: 0; margin: 0 auto; }
+        .challan-copy { page-break-inside: avoid; margin-bottom: 4mm; padding: 4mm; border: 2px solid #000; background: white; }
+        .copy-label { text-align: center; font-weight: bold; font-size: 12px; margin-bottom: 4px; color: #1e3a8a; text-transform: uppercase; }
+        table { width: 100%; border-collapse: collapse; }
+        .header-table td { vertical-align: middle; padding: 1mm 0; }
+        .logo-container img { width: 40px; height: 40px; vertical-align: middle; }
+        .challan-title { font-weight: bold; font-size: 13px; color: #000; vertical-align: middle; padding-left: 4mm; display: inline-block; }
+        .challan-info { text-align: right; font-size: 10px; }
+        .challan-number { font-size: 12px; font-weight: bold; color: #dc2626; }
+        .challan-program { text-align: center; font-size: 10px; margin: 3mm 0; color: #000; font-weight: 500; }
+        .fee-heads-horizontal { font-size: 10px; line-height: 1.4; }
+        hr { border: none; border-top: 1px solid #000; margin: 2mm 0; }
+        .challan-footer { margin-top: 3mm; font-size: 9px; border-top: 1px dashed #666; padding-top: 2mm; }
+        .fee-section-table td { vertical-align: top; font-size: 10px; padding: 1mm 0; }
+        .fee-section-table td.right-align { text-align: right; }
+        .remaining-amount { color: #dc2626; font-weight: bold; font-size: 11px; }
+        
+        /* OneLink Styling */
+        .onelink-section { margin-top: 3mm; border: 2px solid #f59e0b; background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 3mm; border-radius: 2mm; }
+        .onelink-header { text-align: center; font-weight: bold; font-size: 11px; color: #92400e; margin-bottom: 2mm; text-transform: uppercase; }
+        .onelink-number { text-align: center; font-size: 18px; font-weight: bold; color: #000; letter-spacing: 3px; font-family: 'Courier New', monospace; background: white; padding: 2mm; border: 1px dashed #f59e0b; border-radius: 1mm; margin-bottom: 2mm; }
+        .onelink-instructions { font-size: 9px; line-height: 1.4; color: #1f2937; }
+        .installment-badge { background: #3b82f6; color: white; padding: 1mm 3mm; border-radius: 2mm; font-size: 9px; font-weight: bold; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="challan-container">
+        <!-- Student Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">
+                Student Copy <span class="installment-badge">INSTALLMENT 1 OF 3</span>
+            </div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 60%;">
+                        <div class="logo-container">
+                            <img src="/media/logos/logo_college_WKUcgZi.jpg" alt="College Logo">
+                            <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                        </div>
+                    </td>
+                    <td style="width: 40%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span class="challan-number">CH7850901</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                BS IT - Semester 1 - Session 2026 - 2029
+            </div>
+            <hr />
+            <div><strong>Student:</strong> Malaika Saleem | <strong>Roll No:</strong> 101 | <strong>Shift:</strong> Evening</div>
+            <table class="fee-section-table" style="margin-top: 2mm;">
+                <tr>
+                    <td style="width: 55%;">
+                        <strong>Fee Breakdown:</strong>
+                        <div class="fee-heads-horizontal">Tuition Fee: Rs.345.00, Admission Fee: Rs.225.00</div>
+                    </td>
+                    <td style="width: 45%;" class="right-align">
+                        <div><strong>Due Date:</strong> 07/02/2026</div>
+                        <div style="font-size: 13px; color: #059669; margin-top: 1mm;"><strong>Installment 1: Rs. 345.00</strong></div>
+                        <div class="remaining-amount">Remaining: Rs. -120.00</div>
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="onelink-section">
+                <div class="onelink-header">🏦 1Bill Consumer Number (OneLink)</div>
+                <div class="onelink-number">Pending</div>
+                <div class="onelink-instructions">
+                    ✓ Open Bank App → Bill Payment → 1Bill<br />
+                    ✓ Enter: <strong>Pending</strong><br />
+                    ✓ Pay: <strong>Rs. 345.00</strong> (Installment 1)
+                </div>
+            </div>
+            
+            <div style="margin-top: 2mm; font-size: 8px; color: #dc2626; text-align: center; font-style: italic;">
+                ⚠ Late Fee: Rs. 500 per week after due date | Total Payable if late will increase
+            </div>
+            
+            <div class="challan-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%;">Officer: ______________</td>
+                        <td style="width: 33%; text-align: center;">Cashier: ______________</td>
+                        <td style="width: 34%; text-align: right;">Bank Stamp: ______________</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Bank Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">
+                Bank Copy <span class="installment-badge">INSTALLMENT 1 OF 3</span>
+            </div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 60%;">
+                        <div class="logo-container">
+                            <img src="/media/logos/logo_college_WKUcgZi.jpg" alt="College Logo">
+                            <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                        </div>
+                    </td>
+                    <td style="width: 40%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span class="challan-number">CH7850901</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                BS IT - Semester 1 - Session 2026 - 2029
+            </div>
+            <hr />
+            <div><strong>Student:</strong> Malaika Saleem | <strong>Roll No:</strong> 101 | <strong>Shift:</strong> Evening</div>
+            <table class="fee-section-table" style="margin-top: 2mm;">
+                <tr>
+                    <td style="width: 55%;">
+                        <strong>Fee Breakdown:</strong>
+                        <div class="fee-heads-horizontal">Tuition Fee: Rs.345.00, Admission Fee: Rs.225.00</div>
+                    </td>
+                    <td style="width: 45%;" class="right-align">
+                        <div><strong>Due Date:</strong> 07/02/2026</div>
+                        <div style="font-size: 13px; color: #059669; margin-top: 1mm;"><strong>Installment 1: Rs. 345.00</strong></div>
+                        <div class="remaining-amount">Remaining: Rs. -120.00</div>
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="onelink-section">
+                <div class="onelink-header">🏦 1Bill Consumer Number</div>
+                <div class="onelink-number">Pending</div>
+            </div>
+            
+            <div class="challan-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%;">Officer: ______________</td>
+                        <td style="width: 33%; text-align: center;">Cashier: ______________</td>
+                        <td style="width: 34%; text-align: right;">Bank Stamp: ______________</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <!-- College Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">
+                College Copy <span class="installment-badge">INSTALLMENT 1 OF 3</span>
+            </div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 60%;">
+                        <div class="logo-container">
+                            <img src="/media/logos/logo_college_WKUcgZi.jpg" alt="College Logo">
+                            <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                        </div>
+                    </td>
+                    <td style="width: 40%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span class="challan-number">CH7850901</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                BS IT - Semester 1 - Session 2026 - 2029
+            </div>
+            <hr />
+            <div><strong>Student:</strong> Malaika Saleem | <strong>Roll No:</strong> 101 | <strong>Shift:</strong> Evening</div>
+            <table class="fee-section-table" style="margin-top: 2mm;">
+                <tr>
+                    <td style="width: 55%;">
+                        <strong>Fee Breakdown:</strong>
+                        <div class="fee-heads-horizontal">Tuition Fee: Rs.345.00, Admission Fee: Rs.225.00</div>
+                    </td>
+                    <td style="width: 45%;" class="right-align">
+                        <div><strong>Due Date:</strong> 07/02/2026</div>
+                        <div style="font-size: 13px; color: #059669; margin-top: 1mm;"><strong>Installment 1: Rs. 345.00</strong></div>
+                        <div class="remaining-amount">Remaining: Rs. -120.00</div>
+                    </td>
+                </tr>
+            </table>
+            
+            <div class="onelink-section">
+                <div class="onelink-header">🏦 1Bill Consumer Number</div>
+                <div class="onelink-number">Pending</div>
+                <div style="font-size: 8px; margin-top: 1mm;">
+                    Student CNIC: 3540455555555 | Contact: 03486054837
+                </div>
+            </div>
+            
+            <div class="challan-footer">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%;">Officer: ______________</td>
+                        <td style="width: 33%; text-align: center;">Cashier: ______________</td>
+                        <td style="width: 34%; text-align: right;">Bank Stamp: ______________</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

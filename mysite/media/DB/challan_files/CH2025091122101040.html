@@ -1,0 +1,246 @@
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Challan</title>
+                <style>
+                    body { 
+                        font-family: Arial, sans-serif; 
+                        margin: 0; 
+                        padding: 20px; 
+                        font-size: 12px;
+                    }
+                    .challan-container { 
+                        width: 100%; 
+                        max-width: 800px; 
+                        margin: 0 auto; 
+                        border: 1px solid #ccc; 
+                        padding: 15px;
+                    }
+                    .challan-copy { 
+                        page-break-after: always; 
+                        margin-bottom: 30px; 
+                        border: 1px solid #000; 
+                        padding: 15px;
+                    }
+                    .copy-label { 
+                        text-align: center; 
+                        font-weight: bold; 
+                        font-size: 14px; 
+                        margin-bottom: 10px;
+                    }
+                    .challan-header { 
+                        display: flex; 
+                        justify-content: space-between; 
+                        align-items: center; 
+                        margin-bottom: 10px;
+                    }
+                    .challan-title { 
+                        display: flex; 
+                        align-items: center; 
+                        font-weight: bold; 
+                        font-size: 16px;
+                    }
+                    .logo-container { 
+                        margin-right: 15px; 
+                        width: 60px; 
+                        height: 60px;
+                    }
+                    .logo-container img { 
+                        width: 100%; 
+                        height: auto; 
+                        max-width: 60px; 
+                        max-height: 60px;
+                    }
+                    .challan-info { 
+                        text-align: right; 
+                        font-size: 14px;
+                    }
+                    .challan-program { 
+                        text-align: center; 
+                        font-size: 12px; 
+                        margin-bottom: 5px;
+                    }
+                    .challan-content { 
+                        margin: 10px 0;
+                    }
+                    .challan-footer { 
+                        margin-top: 20px; 
+                        font-size: 11px;
+                    }
+                    .fee-heads-list { 
+                        margin-left: 10px; 
+                        line-height: 1.5;
+                    }
+                    .fee-head-item { 
+                        margin-bottom: 3px;
+                    }
+                    hr { 
+                        border: none; 
+                        border-top: 1px solid #000; 
+                        margin: 5px 0;
+                    }
+                    @media print {
+                        body { margin: 0; }
+                        .no-print { display: none; }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="challan-container">
+                    <!-- Student Copy -->
+                    <div class="challan-copy">
+                        <div class="copy-label">Student Copy</div>
+                        <div class="challan-header">
+                            <div class="challan-title">
+                                <div class="logo-container">
+                                    <img src="logo_college.jpg" alt="College Logo">
+                                </div>
+                                <span>Government Graduate College, Civil Lines Sheikhupura</span>
+                            </div>
+                            <div class="challan-info">
+                                <strong>Challan No.</strong><br />
+                                <span class="challan-number">CH2025091122101040</span>
+                            </div>
+                        </div>
+                        <div class="challan-program">
+                            <span class="form-discipline">BS IT</span> -
+                            Semester <span class="form-semester">8</span> -
+                            Session <span class="form-session">2022-2025</span>
+                        </div>
+                        <hr />
+                        <div class="challan-content">
+                            <div><strong>Candidate:</strong> <span class="c-name">Aiman</span> [<span class="c-roll">40</span>] (<span class="c-shift">Evening</span>)</div>
+                            <div style="margin-top: 10px; display: flex; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <strong>Fee Heads:</strong>
+                                    <div class="fee-heads-list">
+                                        <div class="fee-head-item">Tuition Fee: Rs.232</div><div class="fee-head-item">Red Cross Fee: Rs.30</div><div class="fee-head-item">General Fund: Rs.50</div><div class="fee-head-item">Magazine Fund: Rs.120</div><div class="fee-head-item">Library Fund: Rs.300</div><div class="fee-head-item">Examination Fee: Rs.200</div><div class="fee-head-item">College Card: Rs.50</div><div class="fee-head-item">Masjid Fund: Rs.200</div>
+                                    </div>
+                                </div>
+                                <div style="flex: 1; text-align: right;">
+                                    <div><strong>Fee Submission:</strong></div>
+                                    <div><strong>Due Date:</strong> <span class="c-due">11/10/2025</span></div>
+                                    <div><strong>Amount:</strong> <span class="c-amount">1182.0</span></div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; border: 1px solid black; padding: 8px; font-size: 11px;">
+                                • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br />
+                                • For Online Fee Deposit: Select 1BILL in Mobile/internet/ATM Banking apps, <strong>Enter the 1Bill#:</strong> <span class="c-one-bill">Pending</span> and pay the amount.
+                            </div>
+                            <div style="margin-top: 10px; font-style: italic; font-size: 11px;">
+                                "Any fee directly transferred to account through ATM any Banking channel is not verifiable."
+                            </div>
+                        </div>
+                        <div class="challan-footer">
+                            <div style="margin-bottom: 10px;">
+                                Officer: ______________ &nbsp; Cashier: ____________ &nbsp; Stamp: ____________
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bank Copy -->
+                    <div class="challan-copy">
+                        <div class="copy-label">Bank Copy</div>
+                        <div class="challan-header">
+                            <div class="challan-title">
+                                <div class="logo-container">
+                                    <img src="logo_college.jpg" alt="College Logo">
+                                </div>
+                                <span>Government Graduate College, Civil Lines Sheikhupura</span>
+                            </div>
+                            <div class="challan-info">
+                                <strong>Challan No.</strong><br />
+                                <span class="challan-number">CH2025091122101040</span>
+                            </div>
+                        </div>
+                        <div class="challan-program">
+                            <span class="form-discipline">BS IT</span> -
+                            Semester <span class="form-semester">8</span> -
+                            Session <span class="form-session">2022-2025</span>
+                        </div>
+                        <hr />
+                        <div class="challan-content">
+                            <div><strong>Candidate:</strong> <span class="c-name">Aiman</span> [<span class="c-roll">40</span>] (<span class="c-shift">Evening</span>)</div>
+                            <div style="margin-top: 10px; display: flex; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <strong>Fee Heads:</strong>
+                                    <div class="fee-heads-list">
+                                        <div class="fee-head-item">Tuition Fee: Rs.232</div><div class="fee-head-item">Red Cross Fee: Rs.30</div><div class="fee-head-item">General Fund: Rs.50</div><div class="fee-head-item">Magazine Fund: Rs.120</div><div class="fee-head-item">Library Fund: Rs.300</div><div class="fee-head-item">Examination Fee: Rs.200</div><div class="fee-head-item">College Card: Rs.50</div><div class="fee-head-item">Masjid Fund: Rs.200</div>
+                                    </div>
+                                </div>
+                                <div style="flex: 1; text-align: right;">
+                                    <div><strong>Fee Submission:</strong></div>
+                                    <div><strong>Due Date:</strong> <span class="c-due">11/10/2025</span></div>
+                                    <div><strong>Amount:</strong> <span class="c-amount">1182.0</span></div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; border: 1px solid black; padding: 8px; font-size: 11px;">
+                                • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br />
+                                • For Online Fee Deposit: Select 1BILL in Mobile/internet/ATM Banking apps, <strong>Enter the 1Bill#:</strong> <span class="c-one-bill">Pending</span> and pay the amount.
+                            </div>
+                            <div style="margin-top: 10px; font-style: italic; font-size: 11px;">
+                                "Any fee directly transferred to account through ATM any Banking channel is not verifiable."
+                            </div>
+                        </div>
+                        <div class="challan-footer">
+                            <div style="margin-bottom: 10px;">
+                                Officer: _______________ &nbsp; Cashier: ______________ &nbsp; Stamp: ____________
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- College Copy -->
+                    <div class="challan-copy">
+                        <div class="copy-label">College Copy</div>
+                        <div class="challan-header">
+                            <div class="challan-title">
+                                <div class="logo-container">
+                                    <img src="logo_college.jpg" alt="College Logo">
+                                </div>
+                                <span>Government Graduate College, Civil Lines Sheikhupura</span>
+                            </div>
+                            <div class="challan-info">
+                                <strong>Challan No.</strong><br />
+                                <span class="challan-number">CH2025091122101040</span>
+                            </div>
+                        </div>
+                        <div class="challan-program">
+                            <span class="form-discipline">BS IT</span> -
+                            Semester <span class="form-semester">8</span> -
+                            Session <span class="form-session">2022-2025</span>
+                        </div>
+                        <hr />
+                        <div class="challan-content">
+                            <div><strong>Candidate:</strong> <span class="c-name">Aiman</span> [<span class="c-roll">40</span>] (<span class="c-shift">Evening</span>)</div>
+                            <div style="margin-top: 10px; display: flex; justify-content: space-between;">
+                                <div style="flex: 1;">
+                                    <strong>Fee Heads:</strong>
+                                    <div class="fee-heads-list">
+                                        <div class="fee-head-item">Tuition Fee: Rs.232</div><div class="fee-head-item">Red Cross Fee: Rs.30</div><div class="fee-head-item">General Fund: Rs.50</div><div class="fee-head-item">Magazine Fund: Rs.120</div><div class="fee-head-item">Library Fund: Rs.300</div><div class="fee-head-item">Examination Fee: Rs.200</div><div class="fee-head-item">College Card: Rs.50</div><div class="fee-head-item">Masjid Fund: Rs.200</div>
+                                    </div>
+                                </div>
+                                <div style="flex: 1; text-align: right;">
+                                    <div><strong>Fee Submission:</strong></div>
+                                    <div><strong>Due Date:</strong> <span class="c-due">11/10/2025</span></div>
+                                    <div><strong>Amount:</strong> <span class="c-amount">1182.0</span></div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; border: 1px solid black; padding: 8px; font-size: 11px;">
+                                • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br />
+                                • For Online Fee Deposit: Select 1BILL in Mobile/internet/ATM Banking apps, <strong>Enter the 1Bill#:</strong> <span class="c-one-bill">Pending</span> and pay the amount.
+                            </div>
+                            <div style="margin-top: 10px; font-style: italic; font-size: 11px;">
+                                "Any fee directly transferred to account through ATM any Banking channel is not verifiable."
+                            </div>
+                        </div>
+                        <div class="challan-footer">
+                            <div style="margin-bottom: 10px;">
+                                Officer: _____________ &nbsp; Cashier: _____________ &nbsp; Stamp: ____________
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+            </html>
+            

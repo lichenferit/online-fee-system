@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Challan</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/search_challan.css' %}">
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        {% if active_logo and active_logo.logo %}
+        <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo" />
+        {% endif %}
+    </div>
+    <div class="college-name-container">
+        <div class="college-name-header-text">
+            {{ active_logo.college_name }}
+        </div>
+    </div>
+</header>
+<div id="searchPage" class="page active">
+    <div class="form-container">
+        <h2>Search Challan</h2>
+        <label for="cnic">CNIC Number:</label>
+        <input type="text" id="cnic" placeholder="Enter CNIC (e.g., 3520212345678)">
+        <button class="main-button" onclick="searchChallans()">Search</button>
+    </div>
+</div>
+<div id="resultPage" class="page">
+    <div class="result-container">
+        <div class="result-header">
+            <h2>Student Challans</h2>
+            <button class="back-button" onclick="goBack()">← Back to Search</button>
+        </div>
+        <div id="studentInfo" class="student-info"></div>
+        
+        <div id="challansList" class="challans-list"></div>
+    </div>
+</div>
+<div id="errorModal" class="modal">
+    <div class="modal-content">
+        <h3>Error</h3>
+        <p id="modalMessage"></p>
+        <button onclick="closeModal()">OK</button>
+    </div>
+</div>
+<div id="loadingSpinner" class="loading-spinner">
+    <div class="spinner"></div>
+    <p>Searching...</p>
+</div>
+
+<script src="{% static 'feeapp/js/search_challan.js' %}"></script>
+</body>
+</html>

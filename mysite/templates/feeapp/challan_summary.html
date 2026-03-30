@@ -1,0 +1,310 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challan Summary</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/challan_summary.css' %}">
+</head>
+<body>
+
+<header>
+    <div class="logo-container">
+        {% if active_logo and active_logo.logo %}
+        <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo" />
+        {% endif %}
+    </div>
+    <div class="college-name-container">
+        <div class="college-name-header-text">
+            {{ active_logo.college_name }}
+        </div>
+    </div>
+</header>
+
+<!-- ============================================================
+     SCREEN 1
+     ============================================================ -->
+<div id="screen1" class="page-wrapper">
+
+    <div class="page-heading">Challan Summary</div>
+
+    <!-- HISTORY TOGGLE BUTTONS -->
+    <div class="toggle-btn-row">
+
+        {% if is_admin %}
+        <button class="history-toggle-btn" id="btnLoginHistory"
+                onclick="toggleHistoryTable('loginHistoryBlock', 'btnLoginHistory')">
+            Login History
+            <span class="history-btn-arrow">&#9660;</span>
+        </button>
+        {% endif %}
+
+        <button class="history-toggle-btn" id="btnActivityHistory"
+                onclick="toggleHistoryTable('activityHistoryBlock', 'btnActivityHistory')">
+            Activity History
+            <span class="history-btn-arrow">&#9660;</span>
+        </button>
+
+    </div>
+
+    <!-- LOGIN HISTORY BLOCK — admin only -->
+    {% if is_admin %}
+    <div class="history-table-block" id="loginHistoryBlock">
+        <div class="section-heading">Login History</div>
+
+        <!-- Search Form — table shows only after search button click -->
+        <div style="display:flex; gap:12px; margin-bottom:14px; flex-wrap:wrap; align-items:flex-end;">
+
+            <div class="filter-field">
+                <label class="filter-label">User Email ID</label>
+                <input type="text" id="searchUserId" class="filter-input"
+                       placeholder="Enter email..." style="width:240px;">
+            </div>
+
+            <div class="filter-field">
+                <label class="filter-label">From Date</label>
+                <input type="date" id="searchLoginDateFrom" class="filter-input">
+            </div>
+
+            <div class="filter-field">
+                <label class="filter-label">To Date</label>
+                <input type="date" id="searchLoginDateTo" class="filter-input">
+            </div>
+
+            <button class="generate-report-btn" onclick="filterLoginHistory()">
+                Search
+            </button>
+
+        </div>
+
+        <!-- Search error -->
+        <div id="loginSearchError" style="display:none; background:#fff0f0; border:1.5px solid #e74c3c;
+             color:#c0392b; border-radius:6px; padding:10px 16px; margin-bottom:12px;
+             font-size:13px; font-weight:600;"></div>
+
+        <!-- Table: hidden by default, appears only after search -->
+        <div id="loginHistoryTableWrap" style="display:none;">
+            <div class="table-section">
+                <table class="main-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Login Date</th>
+                            <th>Login Time</th>
+                            <th>Logout Date</th>
+                            <th>Logout Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="loginHistoryTbody">
+                        {% if login_history %}
+                            {% for record in login_history %}
+                            <tr class="login-history-row"
+                                data-email="{{ record.user.email|lower }}"
+                                data-date="{{ record.date|date:'Y-m-d' }}">
+                                <td>{{ record.user.email }}</td>
+                                <td>{{ record.date|date:"d/m/Y" }}</td>
+                                <td>{{ record.login_time|time:"h:i A" }}</td>
+                                <td>
+                                    {% if record.logout_date %}
+                                        {{ record.logout_date|date:"d/m/Y" }}
+                                    {% elif record.logout_time %}
+                                        {{ record.date|date:"d/m/Y" }}
+                                    {% else %}
+                                        Active
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if record.logout_time %}
+                                        {{ record.logout_time|time:"h:i A" }}
+                                    {% else %}
+                                        Active
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5" class="empty-row">Login history not found.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <div id="loginSearchEmptyMsg" style="display:none;" class="report-empty-msg">
+                No records found for the selected filters.
+            </div>
+        </div>
+
+    </div>
+    {% endif %}
+
+    <!-- ACTIVITY HISTORY BLOCK -->
+    <div class="history-table-block" id="activityHistoryBlock">
+        <div class="section-heading">Activity History</div>
+        <div class="table-section">
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th>Clerk Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>First Challan Number</th>
+                        <th>Last Challan Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if activity_history %}
+                        {% for record in activity_history %}
+                        <tr>
+                            <td>{{ record.clerk.clerk_name }}</td>
+                            <td>{{ record.date|date:"d/m/Y" }}</td>
+                            <td>{{ record.time|time:"h:i A" }}</td>
+                            <td>{{ record.first_challan_number }}</td>
+                            <td>{{ record.last_challan_number }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="empty-row">Activity history not found.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- FUND REPORT FILTER -->
+    <div class="report-heading">Fund Report</div>
+    <div class="fund-filter-card">
+
+        <div id="filterValidationError" class="filter-validation-error"></div>
+
+        <div class="fund-filter-grid">
+
+            <div class="filter-field">
+                <label class="filter-label">Date From <span class="required-star"></span></label>
+                <input type="date" id="filterDateFrom" class="filter-input" />
+            </div>
+
+            <div class="filter-field">
+                <label class="filter-label">Date To <span class="required-star"></span></label>
+                <input type="date" id="filterDateTo" class="filter-input" />
+            </div>
+
+            <div class="filter-field">
+                <label class="filter-label">Program <span class="required-star"></span></label>
+                <select id="filterProgram" class="filter-input" onchange="loadCourseGroups(this.value)">
+                    <option value="">Select Program</option>
+                    {% for prog in all_programs %}
+                    <option value="{{ prog.id }}">{{ prog.heading }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="filter-field">
+                <label class="filter-label">Shift <span class="required-star"></span></label>
+                <select id="filterShift" class="filter-input">
+                    <option value="">Select Shift</option>
+                    <option value="morning">Morning</option>
+                    <option value="evening">Evening</option>
+                </select>
+            </div>
+
+            <div class="filter-field">
+                <label class="filter-label">Course Group <span class="required-star"></span></label>
+                <select id="filterCourseGroup" class="filter-input">
+                    <option value="">Select Program First</option>
+                </select>
+            </div>
+
+            <div class="filter-field">
+                <label class="filter-label">Semester / Year <span class="required-star"></span></label>
+                <select id="filterSemester" class="filter-input">
+                    <option value="">Select Program First</option>
+                </select>
+            </div>
+
+        </div>
+
+        <input type="hidden" id="fundReportApiUrl"      value="{% url 'fund_report_api' %}">
+        <input type="hidden" id="programDetailsApiBase" value="{% url 'get_program_details' 0 %}">
+        <input type="hidden" id="isAdminUser"           value="{{ is_admin|yesno:'true,false' }}" />
+
+        <div class="filter-action-row">
+            <div style="padding: 10px 20px;">
+    <button onclick="history.back()" 
+        style="background: #0d2b6e; color: white; border: none; padding: 10px 20px; 
+               border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold;
+               display: flex; align-items: center; gap: 8px;">
+        &#8592; Back
+    </button>
+</div>
+            <button class="generate-report-btn" id="generateBtn" onclick="generateFundReport()">
+                Generate Report
+                <span class="generate-arrow">&#9654;</span>
+            </button>
+            
+        </div>
+
+    </div>
+
+</div>
+
+<div id="screen2" class="page-wrapper" style="display:none;">
+
+    <div class="screen2-topbar">
+        <button class="back-btn" onclick="goBackToScreen1()">
+            &#8592; Back to Summary
+        </button>
+        <div class="screen2-title">Fund Report — Paid Challans</div>
+        <div class="paid-toggle-row">
+            <button class="paid-toggle-btn active" id="btnPaid" onclick="switchReportTab('paid')">
+                Paid Challans
+            </button>
+            <button class="paid-toggle-btn" id="btnUnpaid" onclick="switchReportTab('unpaid')">
+                Unpaid Challans
+            </button>
+        </div>
+    </div>
+
+    <div class="report-meta-bar" id="screen2FilterBar"></div>
+    <div id="screen2ReportContent"></div>
+
+    <div style="text-align:center; margin:20px 0 36px;">
+        <button class="generate-report-btn" onclick="printReport()">
+            Print Report
+        </button>
+    </div>
+
+</div>
+
+<div id="screen3" class="page-wrapper" style="display:none;">
+
+    <div class="screen2-topbar">
+        <button class="back-btn" onclick="goBackToScreen1()">
+            &#8592; Back to Summary
+        </button>
+        <div class="screen2-title">Fund Report — Unpaid Challans</div>
+        <div class="paid-toggle-row">
+            <button class="paid-toggle-btn" id="btnPaid3" onclick="switchReportTab('paid')">
+                Paid Challans
+            </button>
+            <button class="paid-toggle-btn active" id="btnUnpaid3" onclick="switchReportTab('unpaid')">
+                Unpaid Challans
+            </button>
+        </div>
+    </div>
+
+    <div class="report-meta-bar" id="screen3FilterBar"></div>
+    <div id="screen3ReportContent"></div>
+
+    <div style="text-align:center; margin:20px 0 36px;">
+        <button class="generate-report-btn" onclick="printReport()">
+            Print 
+        </button>
+    </div>
+</div>
+<script src="{% static 'feeapp/js/challan_summary.js' %}"></script>
+</body>
+</html>

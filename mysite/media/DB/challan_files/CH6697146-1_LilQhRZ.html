@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Challan - Installment</title>
+    <style>
+        @page { size: A4; margin: 10mm; }
+        body { font-family: Arial, sans-serif; font-size: 10px; line-height: 1.2; margin: 0; padding: 0; }
+        .challan-container { width: 100%; padding: 0; margin: 0 auto; }
+        .challan-copy { page-break-inside: avoid; margin-bottom: 5mm; padding: 5mm; border: 1px solid #000; }
+        .copy-label { text-align: center; font-weight: bold; font-size: 12px; margin-bottom: 5px; color: #1e3a8a; }
+        table { width: 100%; border-collapse: collapse; }
+        .header-table td { vertical-align: middle; }
+        .logo-container img { max-width: 40px; max-height: 40px; }
+        .challan-title { font-weight: bold; font-size: 14px; padding-left: 5px; }
+        .challan-info { text-align: right; font-size: 10px; }
+        .challan-program { text-align: center; font-size: 10px; margin: 5px 0; }
+        hr { border: none; border-top: 1px solid #000; margin: 5px 0; }
+        .fee-section-table td { vertical-align: top; font-size: 10px; }
+        .fee-section-table td.right-align { text-align: right; }
+        .instructions { margin-top: 5px; border: 1px solid black; padding: 5px; font-size: 9px; }
+        .italic-text { margin-top: 5px; font-style: italic; font-size: 9px; }
+        .installment-badge { background: #fef3c7; padding: 3px 8px; border-radius: 4px; font-weight: bold; color: #92400e; }
+    </style>
+</head>
+<body>
+    <div class="challan-container">
+        <!-- Student Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Student Copy <span class="installment-badge">INSTALLMENT</span></div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 50%;">
+                        <div class="logo-container">
+                            <img src="/static/feeapp/images/logo_college.jpg" alt="College Logo">
+                        </div>
+                        <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                    </td>
+                    <td style="width: 50%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span>CH6697146-1</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                FA IT - Semester Inter 1 - Session 2021-2023
+            </div>
+            <hr />
+            <div><strong>Candidate:</strong> Shanaya [346] (Morning)</div>
+            <table class="fee-section-table" style="margin-top: 5px;">
+                <tr>
+                    <td style="width: 60%;">
+                        <strong>Fee Heads:</strong>
+                        <div>Tuition Fee: Rs.647.00, Admission Fee: Rs.80.00, General Fund: Rs.50.00, Medical Fund: Rs.50.00, Welfare Fund: Rs.50.00, Red Cross Fund: Rs.60.00, Magazine Fund: Rs.120.00, Library Security: Rs.500.00, Science Breakage: Rs.60.00, Exam Fund: Rs.180.00, Sports Fund: Rs.180.00, Board Registration Fee: Rs.2300.00, Affiliation Fee: Rs.240.00, Cycle Fund: Rs.100.00, College Card: Rs.50.00, Second Shift: Rs.3600.00</div>
+                    </td>
+                    <td style="width: 40%;" class="right-align">
+                        <div><strong>Installment Payment</strong></div>
+                        <div><strong>Due Date:</strong> 31/10/2025</div>
+                        <div><strong>Amount:</strong> Rs. 4567</div>
+                    </td>
+                </tr>
+            </table>
+            <div class="instructions">
+                • This is an installment challan for partial payment.<br />
+                • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.<br />
+                • For Online Deposit: Select 1BILL, <strong>Enter 1Bill#:</strong> Pending
+            </div>
+            <div class="italic-text">
+                "Any fee directly transferred to account is not verifiable."
+            </div>
+            <div style="margin-top: 10px; font-size: 9px;">
+                Officer: ____________ &nbsp; Cashier: ____________ &nbsp; Stamp: ____________
+            </div>
+        </div>
+        
+        <!-- Bank Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">Bank Copy <span class="installment-badge">INSTALLMENT</span></div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 50%;">
+                        <div class="logo-container">
+                            <img src="/static/feeapp/images/logo_college.jpg" alt="College Logo">
+                        </div>
+                        <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                    </td>
+                    <td style="width: 50%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span>CH6697146-1</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                FA IT - Semester Inter 1 - Session 2021-2023
+            </div>
+            <hr />
+            <div><strong>Candidate:</strong> Shanaya [346] (Morning)</div>
+            <table class="fee-section-table" style="margin-top: 5px;">
+                <tr>
+                    <td style="width: 60%;">
+                        <strong>Fee Heads:</strong>
+                        <div>Tuition Fee: Rs.647.00, Admission Fee: Rs.80.00, General Fund: Rs.50.00, Medical Fund: Rs.50.00, Welfare Fund: Rs.50.00, Red Cross Fund: Rs.60.00, Magazine Fund: Rs.120.00, Library Security: Rs.500.00, Science Breakage: Rs.60.00, Exam Fund: Rs.180.00, Sports Fund: Rs.180.00, Board Registration Fee: Rs.2300.00, Affiliation Fee: Rs.240.00, Cycle Fund: Rs.100.00, College Card: Rs.50.00, Second Shift: Rs.3600.00</div>
+                    </td>
+                    <td style="width: 40%;" class="right-align">
+                        <div><strong>Installment Payment</strong></div>
+                        <div><strong>Due Date:</strong> 31/10/2025</div>
+                        <div><strong>Amount:</strong> Rs. 4567</div>
+                    </td>
+                </tr>
+            </table>
+            <div class="instructions">
+                • This is an installment challan for partial payment.<br />
+                • Fee can be deposited Online through any Banking app/ATM/Mobile Wallet.
+            </div>
+            <div style="margin-top: 10px; font-size: 9px;">
+                Officer: ____________ &nbsp; Cashier: ____________ &nbsp; Stamp: ____________
+            </div>
+        </div>
+        
+        <!-- College Copy -->
+        <div class="challan-copy">
+            <div class="copy-label">College Copy <span class="installment-badge">INSTALLMENT</span></div>
+            <table class="header-table">
+                <tr>
+                    <td style="width: 50%;">
+                        <div class="logo-container">
+                            <img src="/static/feeapp/images/logo_college.jpg" alt="College Logo">
+                        </div>
+                        <span class="challan-title">Government Graduate College, Civil Lines Sheikhupura</span>
+                    </td>
+                    <td style="width: 50%;" class="challan-info">
+                        <strong>Challan No.</strong><br />
+                        <span>CH6697146-1</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="challan-program">
+                FA IT - Semester Inter 1 - Session 2021-2023
+            </div>
+            <hr />
+            <div><strong>Candidate:</strong> Shanaya [346] (Morning)</div>
+            <table class="fee-section-table" style="margin-top: 5px;">
+                <tr>
+                    <td style="width: 60%;">
+                        <strong>Fee Heads:</strong>
+                        <div>Tuition Fee: Rs.647.00, Admission Fee: Rs.80.00, General Fund: Rs.50.00, Medical Fund: Rs.50.00, Welfare Fund: Rs.50.00, Red Cross Fund: Rs.60.00, Magazine Fund: Rs.120.00, Library Security: Rs.500.00, Science Breakage: Rs.60.00, Exam Fund: Rs.180.00, Sports Fund: Rs.180.00, Board Registration Fee: Rs.2300.00, Affiliation Fee: Rs.240.00, Cycle Fund: Rs.100.00, College Card: Rs.50.00, Second Shift: Rs.3600.00</div>
+                    </td>
+                    <td style="width: 40%;" class="right-align">
+                        <div><strong>Installment Payment</strong></div>
+                        <div><strong>Due Date:</strong> 31/10/2025</div>
+                        <div><strong>Amount:</strong> Rs. 4567</div>
+                    </td>
+                </tr>
+            </table>
+            <div class="instructions">
+                • This is an installment challan for partial payment.
+            </div>
+            <div style="margin-top: 10px; font-size: 9px;">
+                Officer: ____________ &nbsp; Cashier: ____________ &nbsp; Stamp: ____________
+            </div>
+        </div>
+    </div>
+</body>
+</html>

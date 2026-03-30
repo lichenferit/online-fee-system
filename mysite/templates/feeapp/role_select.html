@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Role</title>
+    <link rel="stylesheet" href="{% static 'feeapp/css/role_select.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            {% if active_logo and active_logo.logo %}
+            <img src="{{ active_logo.logo.url }}" alt="Logo" class="logo">
+            {% endif %}
+        </div>
+        <div class="college-name-container">
+            <div class="college-name-header-text">
+                {{ active_logo.college_name }}
+            </div>
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="container">
+            <h2>Select Your Role</h2>
+            <select id="roleSelect">
+                <option value="">Choose your role</option>
+                <option value="Student">Student</option>
+                <option value="Clerk">Clerk</option>
+            </select>
+            <button onclick="goToLogin()">Login</button>
+        </div>
+    </div>
+    <script src="{% static 'feeapp/js/role_select.js' %}"></script>
+</body>
+</html>

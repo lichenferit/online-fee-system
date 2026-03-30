@@ -1,0 +1,868 @@
+:root {
+  --blue: #1E3A8A;
+  --border: 1px solid var(--blue);
+}
+
+@page {
+  size: 297mm 210mm;
+  margin: 5mm;
+}
+
+@media print {
+  body,
+  html {
+    width: 297mm;
+    height: 210mm;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.1;
+    overflow: visible !important;
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .header-box {
+    display: none !important;
+  }
+
+  .program-form {
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+  }
+
+  .hidden-on-screen {
+    display: none;
+  }
+
+  #printBackBtn {
+    display: none !important;
+  }
+
+  .buttons-wrapper {
+    display: none !important;
+  }
+
+  select[disabled] {
+    border: var(--border);
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+    background: #f9f9f9;
+    color: #000;
+  }
+
+  #generatedChallan {
+    display: table !important;
+    width: 297mm !important;
+    height: auto !important;
+    page-break-inside: avoid;
+    margin: 0;
+    padding: 0;
+    border-collapse: separate;
+    border-spacing: 2mm;
+  }
+
+  .challan-copy {
+    page-break-inside: avoid;
+    box-sizing: border-box;
+    width: 190mm !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: 190mm !important;
+    overflow: hidden !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin: 0 !important;
+    padding: 15px !important; 
+    border: 2px solid black; 
+    font-size: 12px;
+    line-height: 1.0;
+    display: table-cell !important;
+    vertical-align: top;
+  }
+
+  #challanDisplay {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 9999 !important;
+    background: white !important;
+    width: 120% !important;
+    overflow: visible !important;
+  }
+
+  #challanDisplay.show {
+    display: block !important;
+  }
+
+  .copy-label {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 4px;
+    color: #1e3a8a;
+    flex-shrink: 0;
+    white-space: normal;
+  }
+  .header-section {
+    display: flex !important;
+    align-items: center;
+    justify-content: left;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-shrink: 0;
+  }
+
+   .logo-container {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+  }
+
+  .logo-container img,
+  .circle-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+
+  .college-name {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .challan-number {
+    font-size: 12px !important;
+    margin: 3px 0; 
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .program-info {
+    font-size: 12px !important;
+    text-align: center;
+    margin: 2px 0; 
+    flex-shrink: 0;
+  }
+
+  
+  hr {
+    margin: 5px 0;
+    border: none;
+    border-top: 1px solid #000;
+    flex-shrink: 0;
+  }
+
+  .student-info {
+    font-size: 13px !important;
+    margin: 3px 0;
+    flex-shrink: 0;
+  }
+
+  .date-box {
+    font-size: 12px !important;
+    text-align: right;
+    margin: 1px 0; 
+    flex-shrink: 0;
+  }
+
+  .fee-details {
+    font-size: 12px;
+    margin: 10px 0; 
+    height: auto;
+    flex-shrink: 0;
+  }
+  .fee-details strong {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.5mm 0;
+    font-size: 12px;
+    table-layout: fixed;
+  }
+
+  
+  .fee-table th {
+    border: 1px solid black;
+    padding: 5px; 
+    text-align: center;
+    background-color: #f0f0f0;
+    font-weight: bold;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .fee-table td {
+    border: 1px solid black;
+    padding: 5px 8px; 
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .fee-table td:first-child {
+    width: 60%;
+    text-align: center;
+  }
+
+  .fee-table td:last-child {
+    width: 40%;
+    text-align: center;
+  }
+
+  .amount-box {
+    font-size: 12px !important;
+    text-align: right;
+    margin: 10px 0; 
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+    .instructions {
+    border: 2px solid black;
+    padding: 8px;
+    font-size: 12px;
+    margin: 1px 0;
+    line-height: 1.4;
+    flex-shrink: 0;
+    background-color: white;
+    white-space: nowrap;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .footer-note {
+    font-size: 11px !important;
+    font-style: italic;
+    margin: 5px 0; 
+    flex-shrink: 0;
+  }
+
+  .signature-line {
+    font-size: 12px !important;
+    margin-top: auto;
+    padding-top: 20px;
+    flex-shrink: 0;
+  }
+
+  .remaining-amount {
+    font-weight: bold;
+  }
+
+  .challan-header {
+    display: block;
+    margin-bottom: 1mm;
+    white-space: normal;
+  }
+
+  .challan-header .challan-title {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1mm;
+    white-space: normal;
+  }
+
+  .challan-info {
+    font-size: 12px;
+    text-align: right;
+    white-space: normal;
+  }
+
+  .challan-content,
+  .challan-footer,
+  .c-fee-heads,
+  .c-amount {
+    font-weight: normal !important;
+    white-space: normal;
+  }
+
+  .challan-program {
+    font-size: 12px !important;
+    text-align: center;
+    margin: 0.5mm 0;
+    white-space: normal;
+  }
+
+  .c-fee-heads {
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+    white-space: normal;
+  }
+
+  .challan-content {
+    font-size: 7px;
+    white-space: normal;
+  }
+
+  .challan-content>div {
+    margin-bottom: 0.5mm;
+    white-space: normal;
+  }
+
+  .header-table {
+    width: 100%;
+    margin-bottom: 1mm;
+  }
+
+  .header-table td {
+    vertical-align: middle;
+    white-space: normal;
+  }
+
+  .fee-section-table {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .fee-section-table td {
+    vertical-align: top;
+    padding: 0.5mm 0;
+    white-space: normal;
+  }
+
+  .fee-heads-horizontal {
+    font-size: 12px;
+    line-height: 1.1;
+    white-space: normal;
+  }
+
+  .italic-text {
+    margin-top: 0.5mm;
+    font-style: italic;
+    font-size: 12px;
+    white-space: normal;
+  }
+
+  .signature-lines {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1mm !important;
+    margin-bottom: 0.5mm !important;
+    font-size: 10px !important;
+    font-weight: normal !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .signature-lines {
+    width: 45%;
+    border-top: 1px solid #000;
+    padding-top: 1px;
+    box-sizing: border-box;
+  }
+
+  .challan-footer {
+    margin-top: 1mm !important;
+    padding-top: 1mm !important;
+    padding-bottom: 1mm !important;
+    border-top: 1px solid #eee;
+    font-size: 6px !important;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  align-items: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-box {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 0 64px 0;
+  color: white;
+  background: var(--blue);
+  border: 3px solid var(--blue);
+  border-radius: 12px;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-title {
+  color: var(--blue);
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+select,
+input[type=text],
+input[type=date],
+input[type=number] {
+  border: var(--border);
+  border-radius: 6px;
+  padding: 6px;
+  box-sizing: border-box;
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.program-select {
+  width: 400px !important;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+select:not(.program-select) {
+  width: 100%;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto 50px auto;
+  padding: 40px 40px 10px 40px;
+  border: 4px solid var(--blue);
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: block;
+}
+
+.short {
+  width: 50%;
+}
+
+.session-field {
+  width: 100% !important;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-2 {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 10px;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+}
+
+.discipline-list label,
+.semester-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 6px;
+}
+
+.shift-options label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.bs-type-options label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.fee-head-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.fee-head-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: white;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #1E3A8A;
+  box-sizing: border-box;
+}
+
+.fee-head-item label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 13px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.fee-head-item input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.add-fee-head-btn {
+  background-color: var(--blue);
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.add-fee-head-btn:hover {
+  background-color: #1E3A8A;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-on-screen {
+  display: none !important;
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+select+.form-content {
+  margin-top: 60px;
+}
+
+.program-form {
+  min-height: 900px;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.program-form .form-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-height: 850px;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#bsForm,
+#bsrForm,
+#interForm,
+#bachelorForm,
+#mastersForm,
+#adpForm {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-height: 900px !important;
+  box-sizing: border-box !important;
+}
+
+#interForm,
+#interForm .grid,
+#interForm .discipline-list,
+#interForm .semester-checkboxes,
+#interForm .fee-head-table {
+  max-width: 100% !important;
+  width: 100% !important;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+.discipline-section {
+  min-height: 120px;
+  margin-bottom: 20px;
+}
+
+.discipline-list {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.bs-type-options {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.program-form>* {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.saved-indicator {
+  font-size: 11px;
+  color: green;
+  margin-left: 6px;
+}
+
+
+#challanDisplay {
+  display: none;
+  width: 100%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+}
+
+#challanDisplay.show {
+  display: block !important;
+}
+
+#generatedChallan {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.challan-copy {
+  width: 460px;
+  min-height: 800px;
+  max-height: 850px;
+  border: 2px solid black;
+  padding: 15px;
+  box-sizing: border-box;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.copy-label {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #1e3a8a;
+  flex-shrink: 0;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+}
+
+.logo-container {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.logo-container img,
+.circle-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.college-name {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+}
+
+.challan-number {
+  text-align: right;
+  font-size: 12px;
+  margin: 3px 0;
+  flex-shrink: 0;
+}
+
+.program-info {
+  text-align: center;
+  font-size: 12px;
+  margin: 2px 0;
+  flex-shrink: 0;
+}
+
+.challan-copy hr {
+  border: none;
+  border-top: 1px solid black;
+  margin: 5px 0;
+  flex-shrink: 0;
+}
+
+.student-info {
+  font-size: 13px;
+  margin: 3px 0;
+  flex-shrink: 0;
+}
+
+.date-box {
+  text-align: right;
+  font-size: 12px;
+  margin: 1px 0;
+  flex-shrink: 0;
+}
+
+.fee-details {
+  font-size: 12px;
+  margin: 10px 0;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.fee-details strong {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  table-layout: fixed;
+}
+
+.fee-table th {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.fee-table td {
+  border: 1px solid black;
+  padding: 5px 8px;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.fee-table td:first-child {
+  width: 60%;
+  text-align: center;
+}
+
+.fee-table td:last-child {
+  width: 40%;
+  text-align: center;
+}
+
+.fee-table-body {
+  background-color: white;
+}
+
+.amount-box {
+  text-align: right;
+  font-size: 12px;
+  margin: 10px 0;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.instructions {
+  border: 2px solid black;
+  padding: 8px;
+  font-size: 12px;
+  margin: 1px 0;
+  line-height: 1.4;
+  flex-shrink: 0;
+  background-color: white;
+  white-space: nowrap;
+}
+
+.footer-note {
+  font-style: italic;
+  font-size: 11px;
+  margin: 5px 0;
+  flex-shrink: 0;
+}
+
+.signature-line {
+  font-size: 12px;
+  margin-top: auto;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.generate-btn {
+  font-size: 13px !important;
+  padding: 10px 20px !important;
+}
+
+.c-one-bill {
+  font-weight: bold;
+  color: var(--black);
+}
+
+.challan-header-box {
+  border: 2px solid var(--blue);
+  border-radius: 4px;
+  padding: 5px;
+  margin-bottom: 8px;
+  background-color: #f9f9f9;
+}
+
+.buttons-wrapper {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.buttons-wrapper button {
+  margin: 0 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.remaining-amount {
+  font-weight: bold;
+}
